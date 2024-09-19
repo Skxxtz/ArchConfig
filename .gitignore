@@ -1,0 +1,122 @@
+/*
+
+!/.gitignore
+# !/nvim
+!/hypr
+!/eww
+!/neofetch
+!/waybar
+!/skxxtz
+!/swaync
+!/rofi
+!/recipes
+!/kitty
+!/README.md
+!/gtk*
+
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# custom
+chromium/
+dconf/
+go/
+pulse/
+nordvpn/
+Notion/
+thorium/
+yay/
+GIMP*/
+fontforge/
+NuGet/
+gnome-boxes/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Dependency directories
+vendor/
+.bundle
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Compiled source code
+*.out
+*.class
+*.o
+*.so
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Java
+*.class
+*.jar
+*.war
+
+# macOS
+*.DS_Store
+
+# Windows
+*.exe
+*.dll
+*.pdb
+
+# Linux
+*.so
+
+# Text editor files
+*~
+*.swp
+*.swo
+*.swn
+*.bak
+
+# IDEs and editors
+# JetBrains (e.g. WebStorm, IntelliJ IDEA)
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Sublime Text
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.~*
+.cache/
+.cache/*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Compiled output
+/dist/
+/build/
+/target/

@@ -1,0 +1,130 @@
+configuration {
+  modi:                       "drun,filebrowser";
+  show-icons:                 false;
+  display-drun:               "";
+  display-run:                "Run";
+  display-filebrowser:        "Files";
+  display-window:             "Windows";
+  drun-display-format:        "{name}";
+  window-format:              "Class : {c}\nWorkspace : {w}";
+  me-select-entry:            "";
+  me-accept-entry:            [ MousePrimary, MouseSecondary, MouseDPrimary ];
+}
+
+
+* {
+  background:       #101010;
+  foreground:       #fff;
+  accent:           rgb(22,22,22);
+  selected:         rgb(22,22,22);
+  border-color:     #8DBFF7;
+}
+
+// Main Window
+window {
+  location:                    center;
+  anchor:                      center;
+  fullscreen:                  false;
+  border:                      2px;
+  border-radius:               10px;
+  border-color:                @accent;
+  width:                       700px;
+  x-offset:                    0px;
+  y-offset:                    0px;
+  enabled:                     true;
+  margin:                      0px;
+  padding:                     0px;
+  border-radius:               7px;
+  cursor:                      "pointer";
+  transparency:                "False";
+  background-color:            @background;
+}
+
+// Main Box
+mainbox {
+  enabled:                     true;
+  spacing:                     15px;
+  padding:                     30px;
+  background-color:            transparent;
+  children:                    [ "inputbar", "listview" ];
+}
+
+// Inputbar
+inputbar {
+  enabled:                     true;
+  spacing:                     15px;
+  margin:                      0px;
+  background-color:            transparent;
+  children:                    [ "entry" ];
+}
+
+entry {
+  enabled:                     true;
+  padding:                     12px 16px;
+  border:                      0px;
+  border-radius:               7px;
+  border-color:                @border-tb;
+  background-color:            @selected;
+  text-color:                  @foreground;
+  cursor:                      text;
+  placeholder:                 "Option:";
+  placeholder-color:           inherit;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}
+
+// Listview
+listview {
+  enabled:                     true;
+  columns:                     1;
+  lines:                       6;
+  cycle:                       false;
+  dynamic:                     true;
+  scrollbar:                   false;
+  layout:                      vertical;
+  reverse:                     false;
+  fixed-columns:               false;
+  spacing:                     5px;
+  background-color:            transparent;
+  cursor:                      "default";
+}
+
+// Elements
+element {
+  enabled:                     true;
+  spacing:                     10px;
+  margin:                      5px;
+  padding:                     10px;
+  border:                      0px solid;
+  border-radius:               7px;
+  background-color:            transparent;
+  text-color:                  @foreground;
+  cursor:                      pointer;
+}
+
+element selected.normal {
+  border-radius:               7px;
+  text-color:                  @foreground;
+}
+
+element-text {
+  background-color:            inherit;
+  text-color:                  inherit;
+  cursor:                      inherit;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}
+
+
+element selected.normal{
+  background-color:            @selected;
+  border:                      1px solid;
+  border-color:                @border-color;
+}
+// Message
+error-message {
+  padding:                     20px;
+  background-color:            @background;
+  text-color:                  @foreground;
+}
+

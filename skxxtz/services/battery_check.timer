@@ -1,0 +1,10 @@
+[Unit]
+Description=Checks the battery level every 2 minutes and if below, sends a notification using notify-send.
+
+[Timer]
+OnCalendar=*:0/2
+Persistent=true
+Unit=battery_check.service
+
+[Install]
+WantedBy=timers.target

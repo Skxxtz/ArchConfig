@@ -1,0 +1,218 @@
+(defpoll brightness :interval "500ms" "scripts/get_brightness.sh")
+(defpoll output-volume :interval "500ms" "scripts/get_output_volume.sh")
+(defpoll input-volume :interval "500ms" "scripts/get_input_volume.sh")
+(defpoll music-cover :interval "1s" "~/.config/skxxtz/scripts/music/music.sh --get-art")
+(defpoll music-title :interval "1s" "~/.config/skxxtz/scripts/music/music.sh --song")
+(defpoll music-artist :interval "1s" "~/.config/skxxtz/scripts/music/music.sh --artist")
+
+(defwidget metric [label value min ?onchange ?onclick]
+  (box 
+    :orientation "h"
+    :class "metric"
+    :space-evenly true
+    (box 
+      :class "metric-label"
+      (button 
+        :onclick onclick
+        :class "metric-label-text"
+        label
+      )
+      (scale 
+        :min min
+        :max 101
+        :active {onchange != ""}
+        :value value
+        :onchange onchange
+      )
+    )
+  )
+)
+
+(defwidget brightness-slider []
+  (metric 
+    :label ""
+    :value brightness
+    :min 10
+    :onchange "scripts/set_brightness.sh {}"
+  )
+)
+(defwidget output_volume-slider []
+  (metric 
+    :label ""
+    :value output-volume
+    :min 0
+    :onchange "scripts/set_output_volume.sh {}%"
+  )
+)
+(defwidget input_volume-slider []
+  (metric 
+    :label ""
+    :value input-volume
+    :min 0
+  :onchange "scripts/set_input_volume.sh {}%"
+  )
+)
+(defwidget barmenu-sliders []
+  (box 
+    :class "barmenu-sliders"
+    :orientation "v"
+    :space-evenly false
+    :halign "center"
+    (brightness-slider)
+    (output_volume-slider)
+    (input_volume-slider)
+  )
+)
+
+(defwidget bmb [onclick label]
+  (button
+    :class "barmenu-button"
+    :onclick onclick
+    label
+  )
+)
+(defwidget update-rice-button []
+  (bmb
+    :onclick "scripts/update_rice"
+    :label "Update Rice"
+  )
+)
+(defwidget barmenu-buttons []
+  (box
+    :class "barmenu-buttons"
+    :orientation "v"
+    :space-evenly false
+    :halign "center"
+    (box 
+      :class "sbr-1"
+      :orientation "h"
+      :space-evenly true
+      (update-rice-button)
+    )
+  )
+)
+(defwidget barmenu-spacer []
+  (box
+    :class "barmenu-spacer"
+    :orientation "v"
+    :space-evenly true
+  )
+)
+(defwidget barmenu []
+  (box
+    :space-evenly false
+    :orientation "v"
+    :class "barmenu"
+    (barmenu-sliders)
+  )
+)
+(defwindow barmenu
+  :monitor 0
+  :geometry (geometry
+    :x "30px"
+    :y "250px"
+    :width "400px"
+    :height "0px"
+    :anchor "top right"
+  )
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  (barmenu)
+)
+
+
+
+
+
+
+
+(defwidget barcontent []
+  (box
+    :class "bar-content"
+    :orientation "h"
+    :space-evenly false
+    :vexpand "false"
+    :hexpand "false"
+    "hello"
+  )
+)
+
+
+
+
+(defwindow bar 
+  :monitor 0
+  :geometry (geometry :x "0%"
+    :y "0px"
+    :width "100%"
+    :height "20px"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :windowtype "dock"
+  :exclusive true
+  :wm-ignore false
+  (barcontent)
+)
+
+
+
+(defwidget music_controls []
+  (box 
+    :class "background_holder"
+    :style "background-image: url('${music-cover}');"
+    :orientation "v"
+    (box 
+      :class "metadata"
+      :orientation "v"
+      (label
+       :class "music-title"
+       :text "${music-title}"
+       :justify "left"
+       :limit-width 25
+  
+      )
+      (label
+      :class "music-artist"
+      :text "${music-artist}"
+      :justify "left"
+      ) 
+    )
+    
+    (box 
+      :class "controls"
+      (button 
+        :class "btn"
+        :onclick "~/.config/skxxtz/scripts/music/music.sh --previous"
+        ""
+      )
+      (button 
+        :class "btn"
+        :onclick "~/.config/skxxtz/scripts/music/music.sh --play-pause"
+        ""
+      )
+      (button 
+        :class "btn"
+        :onclick "~/.config/skxxtz/scripts/music/music.sh --next"
+        ""
+      )
+    )
+  )
+)
+
+(defwindow music
+  :monitor 0
+  :geometry (geometry 
+    :x "30px"
+    :y "30px"
+    :width "400px"
+    :height "200px"
+    :anchor "top right"
+  )
+  :stacking "fg"
+  :exclusive false
+  :wm-ignore false
+  (music_controls)
+)
+

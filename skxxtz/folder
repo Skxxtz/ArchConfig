@@ -1,0 +1,32 @@
+[audio]
+DESCRIPTION:
+Holds ringtones
+
+[backgrounds]
+DESCRIPTION:
+Holds background images
+
+[bin]
+DESCRIPTION:
+Holds user created binaries
+
+[confs]
+DESCRIPTION:
+Holds information about user specfified preferences such as default browser or media player
+
+[icons]
+DESCRIPTION:
+Holds icons
+
+[python-packages]
+DESCRIPTION:
+Holds user created python packages
+
+[scripts]
+DESCRIPTION:
+Holds user created scripts. Usually bash.
+
+[services]
+DESCRIPTION:
+Holds user created services.
+

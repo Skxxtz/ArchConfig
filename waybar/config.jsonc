@@ -1,0 +1,161 @@
+// -*- mode: jsonc -*-
+// inspo:
+// https://github.com/lgaboury/Sway-Waybar-Install-Script/tree/master
+{
+  "layer": "top", // Waybar at top layer
+    "height": 35,
+    "spacing": 1, 
+    "margin": "7 10 0 10",
+    // Gaps between modules (4px)
+    "modules-left": [
+      "custom/arch"
+    ],
+    "modules-right": [
+      "pulseaudio",
+      "network",
+      "battery",
+      "clock"
+    ], 
+    "custom/arch": {
+        "format": "   ",
+        "on-click": "~/.config/rofi/scripts/power.sh",
+        "tooltip": false
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "python $HOME/.config/skxxtz/scripts/weather/wttr.py",
+        "return-type": "json"
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "s",
+        "default": "",
+        "persistent": ""
+      },
+      "all-outputs": false,
+      "persistent_workspaces": {
+        "*": 4
+      },
+      "format-icons": {
+          "1": "󰼏",
+          "2": "󰼐",
+          "3": "󰼑",
+          "4": "󰼒",
+          "5": "󰼓",
+          "6": "󰼔",
+          "7": "󰼕",
+          "8": "󰼖",
+          "9": "󰼗",
+          "10": "󰿪"
+      }
+    },
+    "keyboard-state": {
+      "numlock": true,
+      "capslock": true,
+      "format": "{name} {icon}",
+      "format-icons": {
+        "locked": "",
+        "unlocked": ""
+      }
+    },
+    "clock": {
+        "format": "{:%A, %d %B    %I:%M %p}",
+        "timezone": "Europe/Berlin",
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": false,
+        "on-click": "swaync-client -t"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false,
+      "on-click":"kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "memory": {
+      "format": "{}% ",
+      "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "tooltip": false,
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "reverse-scrolling": true,
+        "format": "{percent}% {icon}",
+        "tooltip": false,
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+      "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 10,
+      },
+      "format": "{icon}",
+      "format-full": "{capacity}% {icon}",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% ",
+      "tooltip":true,
+      "tooltip-format": "{capacity}%",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+      // "format-icons": ["", "", "", "", ""],
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁾", "󰂀", "󰂁", "󰂂", "󱟢"]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{icon}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{essid} {signalStrength}%",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "⚠",
+        // "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-icons": ["", "", ""],
+        "on-click": "python ~/.config/waybar/scripts/wifi.py"
+    },
+    "pulseaudio": {
+      "tooltip": false,
+      "scroll-step": 1, // %, can be a float
+      "reverse-scrolling": true,
+      "format": "{icon}",
+      "format-bluetooth": "{icon} ", // {volume}% {icon}
+      "format-bluetooth-muted": "  ", // {icon}
+      "format-muted": " ",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "~/.config/waybar/scripts/mute.sh",
+    },
+    "hyprland/window": {
+        "icon-size":16,
+        "max-length": 50,
+        "rewrite": {
+            "nvim(.*)":"NeoVim"
+        },
+    }
+}

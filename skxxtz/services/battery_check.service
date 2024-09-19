@@ -1,0 +1,16 @@
+[Unit]
+Description=Checks battery level every 2 minutes. If below 10, sends notification.
+
+[Service]
+Type=simple
+ExecStart=check-powerlevel
+User=basti
+Group=wheel
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+[Install]
+WantedBy=multi-user.target
+
+
+
