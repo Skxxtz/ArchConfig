@@ -20,3 +20,6 @@ libnotify
 ufw
 ripgrep
 fzf
+linux-headers
+nvidia-dkms
+inxi

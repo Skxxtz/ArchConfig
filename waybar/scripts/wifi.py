@@ -40,10 +40,10 @@ class NetworkInterface:
 
                     ssid = ''.join(chr(b) for b in ssid if b != 0)
                     ap_data = {
-                            "ssid": ssid,
+                            "ssid": ssid.strip(),
                             "strength": int(strength),
                             "bitrate": f"{int(bitrate/1000)} Mbit/s",
-                            "hw_address": str(hw_address),
+                            "hw_address": str(hw_address).strip(),
                             "connected": "[ connected ]" if str(hw_address) == current_wifi else "",
                             }
                     wifi_networks.append(ap_data)
@@ -55,22 +55,20 @@ class NetworkInterface:
         wifi_networks = sorted(wifi_networks, key=lambda item:item["bitrate"], reverse=True)
         wifi_networks = sorted(wifi_networks, key=lambda item:item["strength"], reverse=True)
         
-        ssid_length = max([len(item["ssid"]) for item in wifi_networks]) + 5
+        ssid_length = max([len(item["ssid"].strip()) for item in wifi_networks]) + 5
         strength_length = 5
         hw_addr_length = max([len(item["hw_address"]) for item in wifi_networks]) + 5
         bitrate_length = max([len(item["bitrate"]) for item in wifi_networks]) + 5
 
         data = "\n".join([f'{str(item["strength"]).ljust(strength_length, " ")}{item["ssid"].ljust(ssid_length, " ")}{item["bitrate"].ljust(bitrate_length, " ")}{item["connected"].ljust(len("[ connected ]") + 5, " ")}             {item["hw_address"]}' for item in wifi_networks])
         result = subprocess.run(['rofi', '-dmenu', '-p', 'Wi-Fi Networks', "-theme", "~/.config/rofi/power.rasi"], input=data, text=True, capture_output=True)
-        print(result)
         chosen_network = self.access_points.get(result.stdout.strip().split(" ")[-1])
-        print(chosen_network)
         if chosen_network:
             try:
                 subprocess.run(["nmcli", "d", "wifi", "c", chosen_network["hw_address"]], check=True)
                 subprocess.run(["notify-send", "-u", "low", "-t", "0", "Wi-Fi Connection", f"Connection to {chosen_network['ssid']} established.", "--app-name", "Wi-Fi Menu"])
             except subprocess.CalledProcessError as e:
-                subprocess.run(["notify-send", "-u", "low", "-t", "0", "Wi-Fi Connection", "Connection attempt erred!", "--app-name", "Wi-Fi Menu"])
+                subprocess.run(["notify-send", "-u", "low", "-t", "0", "Wi-Fi Connection", f"Connection attempt erred! {e}", "--app-name", "Wi-Fi Menu"])
 
 def main():
     interface = NetworkInterface()
