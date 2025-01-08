@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Check if font directory exists, if not, create it
-if [[ -d "/usr/share/fonts/OTF"]]; then
+if [[ -d "/usr/share/fonts/OTF" ]]; then
+    echo "OTF directory already exists"
 else
     echo "Creating OTF font directory..."
     sudo mkdir -p /usr/share/fonts/OTF/
@@ -10,7 +11,8 @@ sudo cp ~/.config/skxxtz/fonts/wifi-font.otf /usr/share/fonts/OTF/
 sudo cp ~/.config/skxxtz/fonts/SF-Pro-Display-Medium.otf /usr/share/fonts/OTF/
 
 # Check if icon directory exists, if not, create it
-if [[ -d "/usr/share/icons"]]; then
+if [[ -d "/usr/share/icons" ]]; then
+    echo "Icons directory already exists"
 else
     echo "Creating OTF font directory..."
     sudo mkdir -p /usr/share/icons/

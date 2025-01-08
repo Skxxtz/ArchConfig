@@ -5,5 +5,5 @@ sudo ln -s ~/.config/skxxtz/services/battery_check.service /usr/lib/systemd/syst
 sudo systemctl daemon-reload
 sudo systemctl enable battery_check.timer
 sudo systemctl start battery_check.timer
-sudo systemclt status battery_check.service
+sudo systemctl status battery_check.service
 

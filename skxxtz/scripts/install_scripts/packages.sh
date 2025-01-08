@@ -10,8 +10,8 @@ fi
 while IFS= read -r package; do 
     if [[ -n "$package" ]]; then 
         echo "Installing $package..."
-        sudo pacman -S --needed "$package"
-    fi 
+        sudo pacman -S --noconfirm --needed "$package"
+    fi
 done < "$PACKAGE_LIST"
 
 echo "All packages installed."

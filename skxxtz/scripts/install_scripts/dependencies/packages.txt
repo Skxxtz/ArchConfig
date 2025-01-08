@@ -23,3 +23,6 @@ fzf
 linux-headers
 nvidia-dkms
 inxi
+kitty
+gtk4-layer-shell
+gnome-tweaks

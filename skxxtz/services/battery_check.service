@@ -3,7 +3,7 @@ Description=Checks battery level every 2 minutes. If below 10, sends notificatio
 
 [Service]
 Type=simple
-ExecStart=check-powerlevel
+ExecStart=check-power-level
 User=basti
 Group=wheel
 Environment=DISPLAY=:0
