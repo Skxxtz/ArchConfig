@@ -4,5 +4,6 @@
 alias ls='ls --color=auto'
 alias lls='ls -a --color=auto'
 alias grep='grep --color=auto'
+export TERMINAL = kitty
 PS1='[\u@\h \W]\$ '
 
