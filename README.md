@@ -1,5 +1,4 @@
 # Arch Linux
-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
 ## [Pacman] Packages
 git                         |   source control
 swaybg                      |   Background image
