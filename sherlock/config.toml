@@ -1,0 +1,4 @@
+[appearance]
+gsk_renderer="cairo"
+recolor_icons=false
+icon_paths=["/home/basti/.config/sherlock/icons"]

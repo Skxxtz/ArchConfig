@@ -37,6 +37,7 @@ HheadAscent: 0
 HheadAOffset: 1
 HheadDescent: 0
 HheadDOffset: 1
+OS2Vendor: 'PfEd'
 MarkAttachClasses: 1
 DEI: 91125
 Encoding: Custom
@@ -45,13 +46,13 @@ NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 208 16 4
+WinInfo: 240 16 2
 BeginPrivate: 0
 EndPrivate
 BeginChars: 259 3
 
 StartChar: Wifi3
-Encoding: 256 57364 0
+Encoding: 256 57600 0
 Width: 1080
 VWidth: 1187
 Flags: W
@@ -105,11 +106,11 @@ SplineSet
  570 451 595.5 440.5 616.5 419.5 c 0
  637.5 398.5 648 373 648 343 c 0
 EndSplineSet
-Validated: 524289
+Validated: 1
 EndChar
 
 StartChar: Wifi2
-Encoding: 257 57365 1
+Encoding: 257 57601 1
 Width: 1080
 VWidth: 1187
 Flags: W
@@ -145,11 +146,11 @@ SplineSet
  570 451 595.5 440.5 616.5 419.5 c 0
  637.5 398.5 648 373 648 343 c 0
 EndSplineSet
-Validated: 524289
+Validated: 1
 EndChar
 
 StartChar: Wifi1
-Encoding: 258 57366 2
+Encoding: 258 57602 2
 Width: 1080
 VWidth: 1187
 Flags: W
@@ -168,7 +169,7 @@ SplineSet
  570 451 595.5 440.5 616.5 419.5 c 0
  637.5 398.5 648 373 648 343 c 0
 EndSplineSet
-Validated: 524289
+Validated: 1
 EndChar
 EndChars
 EndSplineFont

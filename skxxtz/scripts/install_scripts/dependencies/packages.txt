@@ -26,3 +26,6 @@ inxi
 kitty
 gtk4-layer-shell
 gnome-tweaks
+mesa-utils
+dmidecode
+xdg-desktop-portal-wlr

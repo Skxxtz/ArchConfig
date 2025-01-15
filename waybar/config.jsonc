@@ -129,7 +129,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
         // "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "", ""],
         "on-click": "python ~/.config/waybar/scripts/wifi.py"
     },
     "pulseaudio": {

@@ -1,0 +1,13 @@
+{
+    "kitty": {
+        "name": "Terminal",
+        "icon": "terminal"
+    },
+    "ncspot": {
+        "name": "Spotify",
+        "icon": "sherlock-spotify"
+    },
+    "VLC media player": {
+        "icon": "mplayer"
+    }
+}
