@@ -29,3 +29,6 @@ gnome-tweaks
 mesa-utils
 dmidecode
 xdg-desktop-portal-wlr
+libfprintd
+fprint
+brightnessctl
