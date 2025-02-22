@@ -1,5 +1,12 @@
 [
     {
+        "name": "Clipboard",
+        "type": "clipboard-execution",
+        "args": {},
+        "priority": 1,
+        "home": true
+    },
+    {
         "name": "Calculator",
         "type": "calculation",
         "args": {},
@@ -53,12 +60,22 @@
         }},
         "priority": 5
     },
+    {
+        "name": "Utilities",
+        "alias": "",
+        "type": "command",
+        "args": {"commands": {
+            "Color Picker": {"icon": "colorgrab", "exec": "hyprpicker -a &", "search_string": "colorpicker"}
+        }},
+        "priority": 5
+    },
 
 
 
 
     {
         "name": "Web Search",
+        "display_name": "Google Search {keyword}",
         "alias": "gg",
         "type": "web_launcher",
         "args": {"search_engine": "google", "icon": "google"},
@@ -67,9 +84,10 @@
     {
         "name": "YouTube Search",
         "alias": "yt",
-        "type": "web_search",
+        "type": "web_launcher",
         "args": {"search_engine": "https://www.youtube.com/results?search_query={keyword}", "icon": "sherlock-youtube"},
-        "priority": 100
+        "priority": 100,
+        "async": true
     },
     {
         "name": "Wikipedia Search",

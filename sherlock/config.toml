@@ -1,4 +1,7 @@
+[debug]
+try_surpress_errors=false
+try_surpress_warnings=true
 [appearance]
 gsk_renderer="cairo"
 recolor_icons=false
-icon_paths=["/home/basti/.config/sherlock/icons"]
+icon_paths=["~/.config/sherlock/icons"]
