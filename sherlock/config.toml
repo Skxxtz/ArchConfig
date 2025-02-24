@@ -2,6 +2,8 @@
 try_surpress_errors=false
 try_surpress_warnings=true
 [appearance]
+width=900
+height=593
 gsk_renderer="cairo"
 recolor_icons=false
 icon_paths=["~/.config/sherlock/icons"]

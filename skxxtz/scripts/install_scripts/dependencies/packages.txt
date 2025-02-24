@@ -32,3 +32,4 @@ xdg-desktop-portal-wlr
 libfprintd
 fprint
 brightnessctl
+hyprpicker
