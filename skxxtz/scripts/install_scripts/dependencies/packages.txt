@@ -33,3 +33,5 @@ libfprintd
 fprint
 brightnessctl
 hyprpicker
+bluez
+bluez-utils
