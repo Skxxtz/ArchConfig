@@ -10,7 +10,8 @@
         "name": "Calculator",
         "type": "calculation",
         "args": {},
-        "priority": 1
+        "priority": 1,
+        "on_return": "copy"
     },
     {
         "name": "App Launcher",
@@ -25,7 +26,11 @@
         "alias": "",
         "type": "command",
         "args": {"commands": {
-            "ChatGPT": {"icon": "chat-gpt", "exec": "xdg-open https://chatgpt.com &", "search_string": "chatgpt;ai;"}
+            "ChatGPT": {"icon": "chat-gpt", "exec": "xdg-open https://chatgpt.com &", "search_string": "chatgpt;ai;"},
+            "Github": {"icon": "sherlock-github", "exec": "xdg-open https://github.com/skxxtz &", "search_string": "github;"},
+            "Figma": {"icon": "sherlock-figma", "exec": "xdg-open https://www.figma.com &", "search_string": "figma;design;"},
+            "0.0.0.0:8000": {"icon": "sherlock-dev", "exec": "xdg-open http://0.0.0.0:8000 &", "search_string": "localhost;8000;dev;0.0.0.0"},
+            "127.0.0.1:8000": {"icon": "sherlock-dev", "exec": "xdg-open http://127.0.0.1:8000 &", "search_string": "localhost;8000;dev;127.0.0.1"}
         }},
         "priority": 3
     },
@@ -75,7 +80,8 @@
 
     {
         "name": "Web Search",
-        "display_name": "Google Search {keyword}",
+        "display_name": "Google Search",
+        "tag_start": "{keyword}",
         "alias": "gg",
         "type": "web_launcher",
         "args": {"search_engine": "google", "icon": "google"},
@@ -83,16 +89,18 @@
     },
     {
         "name": "YouTube Search",
+        "display_name": "Youtube Search",
+        "tag_start": "{keyword}",
         "alias": "yt",
         "type": "web_launcher",
         "args": {"search_engine": "https://www.youtube.com/results?search_query={keyword}", "icon": "sherlock-youtube"},
-        "priority": 100
+        "priority": 0
     },
     {
         "name": "Wikipedia Search",
         "alias": "wiki",
         "type": "bulk_text",
-        "on_return": "copy",
+        "on_return": "next",
         "async": true, 
         "args": {"icon": "wikipedia", "exec": "/home/basti/.config/sherlock/scripts/wiki-api", "exec-args": "'{keyword}'"},
         "priority": 0 

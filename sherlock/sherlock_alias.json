@@ -19,5 +19,13 @@
         "icon": "discord",
         "exec": "/usr/bin/vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland %U",
         "keywords": "discord"
+    },
+    "Microsoft Teams for Linux": {
+        "name": "Teams",
+        "exec": "/usr/bin/teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
+
+    },
+    "Thunderbird": {
+        "icon": "mail-app"
     }
 }

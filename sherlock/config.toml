@@ -1,9 +1,10 @@
 [debug]
-try_surpress_errors=false
-try_surpress_warnings=true
+try_surpress_errors     =   false
+try_surpress_warnings   =   false
 [appearance]
-width=900
-height=593
-gsk_renderer="cairo"
-recolor_icons=false
-icon_paths=["~/.config/sherlock/icons"]
+width                   =   900
+height                  =   593
+gsk_renderer            =   "cairo"
+recolor_icons           =   false
+icon_paths              =   ["~/.config/sherlock/icons"]
+icon_size               =   22
