@@ -1,16 +1,47 @@
 [
     {
+        "name": "Teams Event",
+        "type": "teams_event",
+        "args": {
+            "icon": "teams",
+            "event_date": "now",
+            "event_start": "-5 minutes",
+            "event_end": "+15 minutes"
+        },
+        "priority": 1,
+        "home": true,
+        "spawn_focus": false
+    },
+    {
+        "name": "Spotify",
+        "type": "audio_sink",
+        "args": { },
+        "async": true,
+        "priority": 1.0,
+        "home": true,
+        "spawn_focus": false,
+        "only_home": true
+    },
+
+    {
         "name": "Clipboard",
         "type": "clipboard-execution",
-        "args": {},
-        "priority": 1,
+        "args": {
+            "capabilities": ["url", "hex"]
+        },
+        "priority": 2,
         "home": true
     },
     {
         "name": "Calculator",
         "type": "calculation",
-        "args": {},
-        "priority": 1,
+        "args": {
+            "capabilities": [
+                "calc.math",
+                "calc.length"
+            ]
+        },
+        "priority": 2,
         "on_return": "copy"
     },
     {
@@ -23,7 +54,7 @@
     },
     {
         "name": "Bookmarks",
-        "alias": "",
+        "alias": "bm",
         "type": "command",
         "args": {"commands": {
             "ChatGPT": {"icon": "chat-gpt", "exec": "xdg-open https://chatgpt.com &", "search_string": "chatgpt;ai;"},
@@ -52,7 +83,8 @@
             "Shutdown": {"icon": "system-shutdown", "exec": "systemctl poweroff", "search_string": "Poweroff;Shutdown"},
             "Sleep": {"icon": "system-suspend", "exec": "systemctl suspend", "search_string": "Sleep;"},
             "Lock": {"icon": "system-lock-screen", "exec": "systemctl suspend & swaylock", "search_string": "Lock Screen;"},
-            "Reboot": {"icon": "system-reboot", "exec": "systemctl reboot", "search_string": "reboot"}
+            "Reboot": {"icon": "system-reboot", "exec": "systemctl reboot", "search_string": "reboot;restart"},
+            "Log Oout": {"icon": "system-log-out", "exec": "hyprctl dispatch exit", "search_string": "logout;exit"}
         }},
         "priority": 4
     },
@@ -73,6 +105,14 @@
             "Color Picker": {"icon": "colorgrab", "exec": "hyprpicker -a &", "search_string": "colorpicker"}
         }},
         "priority": 5
+    },
+    {
+        "name": "Kill Process",
+        "alias": "kill",
+        "type": "process",
+        "args": { },
+        "priority": 6,
+        "home": false
     },
 
 
@@ -103,7 +143,8 @@
         "on_return": "next",
         "async": true, 
         "args": {"icon": "wikipedia", "exec": "/home/basti/.config/sherlock/scripts/wiki-api", "exec-args": "'{keyword}'"},
-        "priority": 0 
+        "priority": 0,
+        "shortcut": false
     }
 ]
 

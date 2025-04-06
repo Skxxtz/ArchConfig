@@ -24,8 +24,5 @@
         "name": "Teams",
         "exec": "/usr/bin/teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
 
-    },
-    "Thunderbird": {
-        "icon": "mail-app"
     }
 }
