@@ -3,13 +3,34 @@
         "name": "Teams Event",
         "type": "teams_event",
         "args": {
-            "icon": "teams",
-            "event_date": "now",
-            "event_start": "-5 minutes",
-            "event_end": "+15 minutes"
+            "icon": "teams"
         },
         "priority": 1,
         "home": true,
+        "spawn_focus": false
+    },
+    {
+        "name": "Emoji Picker",
+        "type": "emoji",
+        "args": {
+            "icon": "sherlock-emoji"
+        },
+        "priority": 1,
+        "home": true,
+        "spawn_focus": false
+    },
+    {
+        "name": "Weather",
+        "type": "weather",
+        "args": {
+            "location": "Achim",
+            "update_interval": 60
+        },
+        "priority": 1,
+        "home": true,
+        "async": true,
+        "only_home": true,
+        "shortcut": false,
         "spawn_focus": false
     },
     {
@@ -17,7 +38,7 @@
         "type": "audio_sink",
         "args": { },
         "async": true,
-        "priority": 1.0,
+        "priority": 1,
         "home": true,
         "spawn_focus": false,
         "only_home": true
@@ -27,7 +48,7 @@
         "name": "Clipboard",
         "type": "clipboard-execution",
         "args": {
-            "capabilities": ["url", "hex"]
+            "capabilities": ["url", "colors.all"]
         },
         "priority": 2,
         "home": true
@@ -38,7 +59,7 @@
         "args": {
             "capabilities": [
                 "calc.math",
-                "calc.length"
+                "calc.units"
             ]
         },
         "priority": 2,
@@ -53,6 +74,18 @@
         "home": true
     },
     {
+        "name": "Categories",
+        "alias": "cat",
+        "type": "categories",
+        "args": {"categories": {
+            "Kill Processes": {"icon": "sherlock-process", "exec": "kill", "search_string": "terminate;kill;process"},
+            "Power Menu": {"icon": "battery-full-symbolic", "icon_class": "reactive", "exec": "pm", "search_string": "powermenu;"},
+            "Debug": {"icon": "tools-report-bug", "icon_class": "reactive", "exec": "debug", "search_string": "debug;error"}
+        }},
+        "priority": 3,
+        "home": true
+    },
+    {
         "name": "Bookmarks",
         "alias": "bm",
         "type": "command",
@@ -63,37 +96,28 @@
             "0.0.0.0:8000": {"icon": "sherlock-dev", "exec": "xdg-open http://0.0.0.0:8000 &", "search_string": "localhost;8000;dev;0.0.0.0"},
             "127.0.0.1:8000": {"icon": "sherlock-dev", "exec": "xdg-open http://127.0.0.1:8000 &", "search_string": "localhost;8000;dev;127.0.0.1"}
         }},
-        "priority": 3
+        "priority": 4
     },
     {
         "name": "Network Management",
         "alias": "nm",
         "type": "command",
         "args": {"commands": {
-            "Waves": {"icon": "network-connect", "exec": "nmcli d wifi c Waves &", "search_string": "wifi;waves"},
-            "Waves-AP": {"icon": "network-connect", "exec": "nmcli d wifi c Waves-AP &", "search_string": "wifi;wavesap"}
+            "Waves": {"icon": "network-connect", "icon_class": "reactive", "exec": "nmcli d wifi c Waves &", "search_string": "wifi;waves"},
+            "Waves-AP": {"icon": "network-connect", "icon_class": "reactive", "exec": "nmcli d wifi c Waves-AP &", "search_string": "wifi;wavesap"}
         }},
-        "priority": 4
+        "priority": 5
     },
     {
         "name": "Power Management",
         "alias": "pm",
         "type": "command",
         "args": {"commands": {
-            "Shutdown": {"icon": "system-shutdown", "exec": "systemctl poweroff", "search_string": "Poweroff;Shutdown"},
-            "Sleep": {"icon": "system-suspend", "exec": "systemctl suspend", "search_string": "Sleep;"},
-            "Lock": {"icon": "system-lock-screen", "exec": "systemctl suspend & swaylock", "search_string": "Lock Screen;"},
-            "Reboot": {"icon": "system-reboot", "exec": "systemctl reboot", "search_string": "reboot;restart"},
-            "Log Oout": {"icon": "system-log-out", "exec": "hyprctl dispatch exit", "search_string": "logout;exit"}
-        }},
-        "priority": 4
-    },
-    {
-        "name": "OBS Studio",
-        "alias": "",
-        "type": "command",
-        "args": {"commands": {
-            "Start Recording": {"icon": "sherlock-record", "exec": "obs --startrecording &", "search_string": "recording;start recording;startrecording;obs studio;"}
+            "Shutdown": {"icon": "system-shutdown", "icon_class": "reactive", "exec": "systemctl poweroff", "search_string": "Poweroff;Shutdown"},
+            "Sleep": {"icon": "system-suspend", "icon_class": "reactive", "exec": "systemctl suspend", "search_string": "Sleep;"},
+            "Lock": {"icon": "system-lock-screen", "icon_class": "reactive", "exec": "systemctl suspend & swaylock", "search_string": "Lock Screen;"},
+            "Reboot": {"icon": "system-reboot", "icon_class": "reactive", "exec": "systemctl reboot", "search_string": "reboot;restart"},
+            "Log Oout": {"icon": "system-log-out", "icon_class": "reactive", "exec": "hyprctl dispatch exit", "search_string": "logout;exit"}
         }},
         "priority": 5
     },
@@ -102,19 +126,31 @@
         "alias": "",
         "type": "command",
         "args": {"commands": {
-            "Color Picker": {"icon": "colorgrab", "exec": "hyprpicker -a &", "search_string": "colorpicker"}
+            "Color Picker": {"icon": "colorgrab", "exec": "hyprpicker -a &", "search_string": "colorpicker"},
+            "Start Recording": {"icon": "sherlock-record", "exec": "obs --startrecording &", "search_string": "recording;start recording;startrecording;obs studio;"}
         }},
-        "priority": 5
+        "priority": 6
     },
     {
         "name": "Kill Process",
         "alias": "kill",
         "type": "process",
-        "args": { },
-        "priority": 6,
+        "args": {},
+        "priority": 0,
         "home": false
     },
 
+
+    {
+        "name": "Debug",
+        "type": "debug",
+        "alias": "debug",
+        "args": {"commands": {
+            "Show Errors": {"icon": "sherlock-bug", "exec": "show_errors", "search_string": "debug;errors"}
+        }},
+        "priority": 0,
+        "home": true
+    },
 
 
 

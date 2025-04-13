@@ -5,23 +5,26 @@ terminal                =   "kitty"
 
 [units]
 lengths                 =   "meter"
+temperatures            =   "C"
 
 [debug]
-try_surpress_errors     =   false
-try_surpress_warnings   =   true
+try_suppress_errors     =   false
+try_suppress_warnings   =   true
 app_paths               =   ["~/.local/share/applications/"]
 
 [appearance]
 width                   =   900
-height                  =   593
+height                  =   617
 gsk_renderer            =   "cairo"
 recolor_icons           =   false
 icon_paths              =   ["~/.config/sherlock/icons"]
 icon_size               =   22
+search_icon             =   true
+status_bar              =   true
 
 [behavior]
 caching                 =   true
-cache                   =   "~/.cache/sherlock_desktop_cache.json"
+cache                   =   "~/.cache/sherlock/sherlock_desktop_cache.json"
 daemonize               =   false
 animation               =   true
 
