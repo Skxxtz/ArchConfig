@@ -23,6 +23,5 @@
     "Microsoft Teams for Linux": {
         "name": "Teams",
         "exec": "/usr/bin/teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
-
     }
 }
