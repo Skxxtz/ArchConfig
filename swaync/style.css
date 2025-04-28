@@ -7,6 +7,10 @@
     transition: 100ms;
 }
 
+window {
+    animation: pop-in 0.3s ease forwards;
+}
+
 trough highlight {
     background: #171717;
 }
@@ -23,10 +27,12 @@ slider {
 }
 
 .floating-notifications.background .notification-row .notification-background {
-    border-radius: 12.6px;
-    margin: 0.5em;
+    transition: 0.3s ease;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
     color: #fff;
-    padding: 0.5em;
 }
 .floating-notifications.background .notification-row image{
     margin-right: 0.5em;
@@ -37,7 +43,7 @@ slider {
 
 .floating-notifications.background .notification-row .notification-background .notification {
     padding: 7px;
-    border-radius: 12.6px;
+    border-radius: 5px;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical,

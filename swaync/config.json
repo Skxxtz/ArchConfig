@@ -11,12 +11,12 @@
   "control-center-margin-left": 0,
   "notification-2fa-action": true,
   "notification-inline-replies": false,
-  "notification-icon-size": 40,
+  "notification-icon-size": 30,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
   "timeout": 10,
   "timeout-low": 5,
-  "timeout-critical": 0,
+  "timeout-critical": 20,
   "fit-to-screen": true,
   "relative-timestamps": true,
   "control-center-width": 500,
@@ -47,9 +47,10 @@
     }
   },
   "widgets": [
+    "mpris",
     "title",
     "dnd",
-    "notifications",
+    "notifications"
   ],
   "widget-config": {
     "inhibitors": {
