@@ -5,20 +5,17 @@
     font-size: 14px;
     font-weight: 500;
 }
+
 @define-color primary transparent;
-@define-color secondary #383c4a;
+@define-color secondary #101010;
 @define-color text #f5f0f6;
 
 
 window#waybar {
-    background: #171717;
+    background: rgba(50, 50, 50, 0.7);
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-radius: 7px;
-    border: 2px solid #303030;
-    min-height: 35px;
 }
+
 window#waybar.hidden {
     opacity: 0;
 }
@@ -32,54 +29,58 @@ button {
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover{
+button:hover {
     transition: 0.2s ease;
-    background:transparent;
+    background: transparent;
     border: none;
     outline: none;
     box-shadow: none;
     text-shadow: none;
 }
-button:hover > * {
-    all:unset;
+
+button:hover>* {
+    all: unset;
     text-shadow: none;
     transition: 0.2s ease;
     color: #fff;
 }
 
-#workspaces{
-    border: 2px solid @secondary;
-    padding: 4px;
-    border-radius:6px;
+#workspaces {
+    border-radius: 6px;
 }
+#workspaces * {
+    font-size: 12px;
+}
+
 #workspaces button {
-    padding: 0 10px;
     background-color: transparent;
     color: #a2a2a2;
+    margin: 0px;
+    padding: 0px 5px 0px 2px;
+    font-size: 5px;
 }
 
 #workspaces button.focused {
-    background-color: @secondary;
-    opacity:0.5;
+    color: white;
 }
 
 #workspaces button.urgent {
     color: #eb4d4b;
 }
-#workspaces button.active{
+
+#workspaces button.active {
     transition: 0.2s ease;
-    border-radius:2px;
-    background: @secondary;
+    border-radius: 2px;
+    color: white;
 }
-.modules-right{
-    background-color: rgba(43, 48, 59, 0.0);
-    padding: 5px;
+
+.modules-right {
     border-radius: 5px;
 }
-tooltip{
-    background:rgba(43, 48, 59, 1);
-    margin-top: 50px;
-    border: none;
+
+tooltip {
+    background: #171717;
+    border-radius: 2px;
 }
 
 
@@ -99,34 +100,41 @@ tooltip{
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0px 10px 0px 10px ;
+    padding: 0px 10px 0px 10px;
     color: @text;
-    border-radius:5px;
-    margin-left:5px;
+    border-radius: 5px;
+    margin-left: 5px;
 }
-#battery,#network, #pulseaudio{
+
+#battery,
+#network,
+#pulseaudio {
     padding: 0px 15px 0px 10px;
 }
-#pulseaudio.muted{
+
+#pulseaudio.muted {
     letter-spacing: -12px;
     font-size: 12px;
 }
-#window,
+
 #workspaces {
-    margin: 0 4px;
+    margin: 2px 4px;
 }
-#network{
+
+#network {
     font-size: 26px;
 }
+
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
     margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
     margin-right: 0;
 }
+
 #clock {
     background-color: @primary;
     color: @text;
@@ -137,7 +145,8 @@ tooltip{
     color: @text;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
     color: @text;
     background-color: @primary;
 }
@@ -273,11 +282,11 @@ label:focus {
     min-width: 16px;
 }
 
-#keyboard-state > label {
+#keyboard-state>label {
     padding: 0 5px;
 }
 
-#keyboard-state > label.locked {
+#keyboard-state>label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -286,7 +295,7 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #privacy {
@@ -310,19 +319,21 @@ label:focus {
     background-color: #0069d4;
 }
 
-window#waybar > *{
+window#waybar>* {
     margin: 0 10px;
 }
 
 
 #battery,
 #pulseaudio,
-#network{
-    padding:0px 8px;
+#network {
+    padding: 0px 8px;
 }
-#clock{
-    padding-left: 2em ;
+
+#clock {
+    padding-left: 2em;
 }
-#custom-arch{
+
+#custom-arch {
     font-size: 20px;
 }

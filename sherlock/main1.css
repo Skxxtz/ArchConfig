@@ -2,6 +2,7 @@
     --background: 0, 0%, 9%;
     --foreground: 0, 0%, 15%;
     --text: 53, 100%, 97%;
+    --text-alternate: 53, 0%, 40%;
     --border: 0, 0%, 19%;
 
 
@@ -11,20 +12,20 @@
     --warning: 55, 100%, 68%;
     --success: 140, 40%, 40%;
 
-    --weather-clear: linear-gradient(45deg, #87B2E0 0%, #CED9E5 50%);
-    --weather-few-clouds: linear-gradient(45deg, #A1A1A1 0%, #87B2E0 100%);
-    --weather-many-clouds: linear-gradient(45deg, #B2B2B2 0%, #C8C8C8 100%);
-    --weather-mist: linear-gradient(45deg, #878787 0%, #D1D1C7 100%);
-    --weather-showers: linear-gradient(45deg, #73848C 0%, #374B54 100%);
-    --weather-freezing-scattered-rain-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-freezing-scattered-rain: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-    --weather-snow-scattered-day: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-    --weather-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-snow-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-snow-scattered-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-showers-scattered: linear-gradient(45deg, #73848C 0%, #374B54 100%);
-
+    --weather-clear: 210, 60%, 70%;                     /* Clear sky blue */
+    --weather-few-clouds: 210, 30%, 85%;                 /* Pale blue with some haze */
+    --weather-many-clouds: 220, 0%, 70%;                 /* Soft gray-blue */
+    --weather-mist: 60, 10%, 80%;                        /* Foggy pale beige */
+    --weather-showers: 200, 10%, 50%;                    /* Desaturated rainy blue */
+    --weather-freezing-scattered-rain-storm: 220, 30%, 35%; /* Cold stormy gray-blue */
+    --weather-freezing-scattered-rain: 220, 40%, 45%;    /* Chilly wet gray */
+    --weather-snow-scattered-day: 200, 40%, 95%;         /* Bright, snowy blue-white */
+    --weather-storm: 240, 5%, 15%;                      /* Deep stormy indigo */
+    --weather-snow-storm: 210, 20%, 92%;                 /* Snowy light gray-blue */
+    --weather-snow-scattered-storm: 210, 10%, 25%;       /* Soft overcast snow blend */
+    --weather-showers-scattered: 200, 30%, 65%;          /* Lighter scattered rain */
     --weather-none-available: 0, 0%, 50%;                /* Neutral placeholder gray */
+
 }
 /*
 --warning: 36, 89%, 52%;
@@ -47,17 +48,6 @@ overshoot:backdrop {
     background: none;
     border: none;
     background-color: transparent;
-}
-
-* {
-    padding: 0px;
-    margin: 0px;
-    -gtk-secondary-caret-color: hsl(var(--background));
-    outline-width: 0px;
-    outline-offset: -3px;
-    outline-style: dashed;
-    line-height: 1;
-    font-family: "Cantarell";
 }
 
 #overlay spinner{
@@ -88,24 +78,6 @@ window {
     border: 2px solid hsl(var(--border));
 }
 
-/* STATUS BAR */
-.status-bar {
-    background: hsla(var(--foreground), 0.2);
-    border-top: 1px solid hsl(var(--border));
-    padding: 4px 10px 4px 20px;
-}
-.status-bar label {
-    color: hsl(var(--text), 0.3);
-}
-.spinner-disappear {
-    animation: vanish-rotate 0.3s ease forwards;
-}
-.spinner-appear {
-    animation: ease-opacity 0.3s ease forwards;
-    animation: rotate 0.3s linear infinite;
-}
-
-
 /* SEARCH PAGE */
 #search-bar {
     outline: none;
@@ -122,25 +94,22 @@ window {
     padding: 5px 10px 4px 10px;
 }
 
+/*Setting up animations for search icons*/
 #search-icon-holder image {
     transition: 0.1s ease;
 }
 #search-icon-holder.search image:nth-child(1){
-    transition-delay: 0.05s;
     opacity: 1;
 }
 #search-icon-holder.search image:nth-child(2){
-    transform: rotate(-180deg);
     opacity: 0;
 }
 #search-icon-holder.back image:nth-child(1){
     opacity: 0;
 }
 #search-icon-holder.back image:nth-child(2){
-    transition-delay: 0.05s;
     opacity: 1;
 }
-
 
 #search-icon {
     margin-left: 10px;
@@ -166,7 +135,7 @@ window {
 }
 
 .scrolled-window {
-    padding: 10px 10px 5px 10px;
+    padding: 10px 10px 0px 10px;
     min-width: var(--width) * 0.8;
 }
 
@@ -192,6 +161,9 @@ image {
     padding: 0px 10px;
     margin-bottom: 5px;
     border-radius: 4px;
+}
+.tile:last-child {
+    margin-bottom: 10px;
 }
 .tile:hover *,
 .tile:hover{
@@ -237,7 +209,7 @@ image {
 }
 
 .tile:selected {
-    transition: 0.1s ease;
+    transition: 0s ease;
     background: hsla(var(--foreground), 1);
     background-color: hsla(var(--foreground), 1);
     outline: none;
@@ -374,18 +346,13 @@ image {
 
 /* MPRIS TILE*/
 #mpris-icon-holder{
-    border-radius: 5px;
+    border-radius: 3px;
 }
 /*Animation for replacing album covers*/
 .image-replace-overlay #album-cover{
     opacity: 1;
-    animation: ease-opacity 0.5s forwards;
+    animation: ease-opacity 0.3s forwards;
 }
-
-
-
-
-
 
 
 /* NEXT PAGE */
@@ -464,17 +431,18 @@ image {
 .status-bar label {
     color: hsl(var(--text), 0.3);
 }
-
-
-@keyframes slide {
-    from {
-        transform: translate(0px, 0px);
-    }
-
-    to {
-        transform: translate(-20px, 0px);
-    }
+.spinner-disappear {
+    animation: vanish-rotate 0.3s ease forwards;
 }
+.spinner-appear {
+    animation: ease-opacity 0.3s ease forwards;
+    animation: rotate 0.3s linear infinite;
+}
+
+
+
+
+
 
 /* WEATHER TILE */
 .weather-tile {
@@ -507,65 +475,98 @@ image {
 
 
 
-
-
-
 /*WEATHER CLASSES*/
-.tile.weather-tile label
-{
-    color: hsl(var(--text));
-}
 .tile.weather-tile.weather-clear {
-    background: var(--weather-clear); /* Light sky blue */
+    background: hsl(var(--weather-clear)); /* Light sky blue */
+}
+.tile.weather-tile.weather-clear label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-few-clouds {
-    background: var(--weather-few-clouds); /* Very light */
+    background: hsl(var(--weather-few-clouds)); /* Very light */
+}
+.tile.weather-tile.weather-few-clouds label {
+    color: hsl(var(--text-alternate));
 }
 
 .tile.weather-tile.weather-many-clouds {
-    background: var(--weather-many-clouds); /* Medium-light */
+    background: hsl(var(--weather-many-clouds)); /* Medium-light */
+}
+.tile.weather-tile.weather-many-clouds label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-mist {
-    background: var(--weather-mist); /* Light beige */
+    background: hsl(var(--weather-mist)); /* Light beige */
+}
+.tile.weather-tile.weather-mist label {
+    color: hsl(var(--text-alternate));
 }
 
 .tile.weather-tile.weather-showers {
-    background: var(--weather-showers); /* Medium-dark blue */
+    background: hsl(var(--weather-showers)); /* Medium-dark blue */
+}
+.tile.weather-tile.weather-showers label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-freezing-scattered-rain-storm {
-    background: var(--weather-freezing-scattered-rain-storm);
+    background: hsl(var(--weather-freezing-scattered-rain-storm));
+}
+.tile.weather-tile.weather-freezing-scattered-rain-storm label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-freezing-scattered-rain {
-    background: var(--weather-freezing-scattered-rain);
+    background: hsl(var(--weather-freezing-scattered-rain));
+}
+.tile.weather-tile.weather-freezing-scattered-rain label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-snow-scattered-day {
-    background: var(--weather-snow-scattered-day);
+    background: hsl(var(--weather-snow-scattered-day));
+}
+.tile.weather-tile.weather-snow-scattered-day label {
+    color: hsl(var(--text-alternate));
 }
 
 .tile.weather-tile.weather-storm {
-    background: var(--weather-storm); /* Very dark */
+    background: hsl(var(--weather-storm)); /* Very dark */
+}
+.tile.weather-tile.weather-storm label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-snow-storm {
-    background: var(--weather-snow-storm); /* Light */
+    background: hsl(var(--weather-snow-storm)); /* Light */
+}
+.tile.weather-tile.weather-snow-storm label {
+    color: hsl(var(--text-alternate));
 }
 
 .tile.weather-tile.weather-snow-scattered-storm {
-    background: var(--weather-snow-scattered-storm); /* Still light */
+    background: hsl(var(--weather-snow-scattered-storm)); /* Still light */
+}
+.tile.weather-tile.weather-snow-scattered-storm label {
+    color: hsla(var(--text), 0.8);
 }
 
 .tile.weather-tile.weather-showers-scattered {
-    background: var(--weather-showers-scattered);
+    background: hsl(var(--weather-showers-scattered));
+}
+.tile.weather-tile.weather-showers-scattered label {
+    color: hsl(var(--text));
 }
 
 .tile.weather-tile.weather-none-available {
     background: hsl(var(--weather-none-available)); /* Neutral gray */
 }
+.tile.weather-tile.weather-none-available label {
+    color: hsl(var(--text));
+}
+
 
 
 
@@ -609,5 +610,3 @@ image {
         transform: translate(-20px, 0px);
     }
 }
-
-

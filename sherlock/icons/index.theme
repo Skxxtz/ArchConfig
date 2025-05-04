@@ -1,0 +1,19 @@
+[Icon Theme]
+Name=SherlockIcons
+Comment=Sherlock custom icon theme
+Directories=scalable/apps, scalable,
+
+[scalable]
+Context=Apps
+Size=128
+MinSize=8
+MaxSize=512
+Type=Scalable
+
+[scalable/apps]
+Context=Apps
+Size=128
+MinSize=8
+MaxSize=512
+Type=Scalable
+

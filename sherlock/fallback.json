@@ -10,10 +10,21 @@
         "spawn_focus": false
     },
     {
+        "name": "Bookmarks",
+        "type": "bookmarks",
+        "alias": "bm",
+        "args": {
+            "icon": "sherlock-bookmark",
+            "icon_class": "reactive"
+        },
+        "priority": 3,
+        "home": false
+    },
+    {
         "name": "Weather",
         "type": "weather",
         "args": {
-            "location": "milano",
+            "location": "bremen",
             "update_interval": 60
         },
         "priority": 1,
@@ -39,9 +50,11 @@
         "args": {
             "capabilities": [
                 "url",
-                "colors.all"
+                "colors.all",
+                "calc.math"
             ]
         },
+        "on_return": "copy",
         "priority": 2,
         "home": true
     },
@@ -241,8 +254,7 @@
                 }
             }
         },
-        "priority": 0,
-        "home": true
+        "priority": 0
     },
     {
         "name": "Web Search",
