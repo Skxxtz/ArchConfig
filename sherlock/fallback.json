@@ -27,6 +27,14 @@
             "location": "bremen",
             "update_interval": 60
         },
+        "actions": [
+            {
+                "name": "Show in Web",
+                "exec": "https://www.wttr.in/bremen",
+                "icon": "sherlock-link",
+                "method": "web_launcher"
+            }
+        ],
         "priority": 1,
         "home": true,
         "async": true,
@@ -42,7 +50,22 @@
         "priority": 1,
         "home": true,
         "spawn_focus": false,
-        "only_home": true
+        "only_home": true,
+        "actions": [
+            {
+                "name": "Skip",
+                "icon": "media-seek-forward",
+                "exec": "playerctl next",
+                "method": "command"
+            },
+            {
+                "name": "Previous",
+                "icon": "media-seek-backward",
+                "exec": "playerctl previous",
+                "method": "command"
+            }
+
+        ]
     },
     {
         "name": "Clipboard",
@@ -67,7 +90,7 @@
                 "calc.units"
             ]
         },
-        "priority": 2,
+        "priority": 1,
         "on_return": "copy"
     },
     {
@@ -99,11 +122,31 @@
                     "icon": "tools-report-bug",
                     "icon_class": "reactive",
                     "exec": "debug",
-                    "search_string": "debug;error"
+                    "search_string": "debug;error",
+                    "actions": [
+                        {
+                            "name": "Clear Cache",
+                            "icon": "sherlock-process",
+                            "exec": "clear_cache",
+                            "method": "debug"
+                        },
+                        {
+                            "name": "Reset App Counts",
+                            "icon": "sherlock-process",
+                            "exec": "reset_counts",
+                            "method": "debug"
+                        },
+                        {
+                            "name": "Show Errors",
+                            "icon": "sherlock-process",
+                            "exec": "show_errors",
+                            "method": "debug"
+                        }
+                    ]
                 }
             }
         },
-        "priority": 3,
+        "priority": 2,
         "home": true
     },
     {
@@ -112,16 +155,6 @@
         "type": "command",
         "args": {
             "commands": {
-                "ChatGPT": {
-                    "icon": "chat-gpt",
-                    "exec": "xdg-open https://chatgpt.com &",
-                    "search_string": "chatgpt;ai;"
-                },
-                "Github": {
-                    "icon": "sherlock-github",
-                    "exec": "xdg-open https://github.com/skxxtz &",
-                    "search_string": "github;"
-                },
                 "Figma": {
                     "icon": "sherlock-figma",
                     "exec": "xdg-open https://www.figma.com &",
@@ -254,6 +287,26 @@
                 }
             }
         },
+        "actions": [
+            {
+                "name": "Clear Cache",
+                "icon": "sherlock-process",
+                "exec": "clear_cache",
+                "method": "debug"
+            },
+            {
+                "name": "Reset App Conuts",
+                "icon": "sherlock-process",
+                "exec": "reset_counts",
+                "method": "debug"
+            },
+            {
+                "name": "Show Errors",
+                "icon": "sherlock-process",
+                "exec": "show_errors",
+                "method": "debug"
+            }
+        ],
         "priority": 0
     },
     {

@@ -13,7 +13,7 @@ _currency = "eur"
 
 [debug]
 try_suppress_errors = false
-try_suppress_warnings = false
+try_suppress_warnings = true
 app_paths = ["~/.local/share/applications/"]
 
 [appearance]
@@ -23,6 +23,7 @@ gsk_renderer = "cairo"
 icon_paths = ["~/.config/sherlock/icons/"]
 icon_size = 22
 search_icon = true
+search_icon_size = 50
 use_base_css = true
 status_bar = true
 opacity = 1.0
@@ -30,7 +31,7 @@ mod_key_ascii = ["⇧", "⇧", "⌘", "⌘", "⎇", "✦", "✦", "⌘"]
 
 [behavior]
 cache = "~/.cache/sherlock/sherlock_desktop_cache.json"
-caching = true
+caching = false
 daemonize = false
 animate = true
 

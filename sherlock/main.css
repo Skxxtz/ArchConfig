@@ -60,9 +60,36 @@ overshoot:backdrop {
     font-family: "Cantarell";
 }
 
+#context-menu {
+    /* activation animation */
+    /* animation: context-menu 0.5s ease forwards; */
+    min-width: 50px;
+    padding: 5px;
+    margin: 4px;
+    margin-bottom: 35px;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 10px rgba(22,22,22,0.4);
+}
+#context-menu row {
+    color: hsla(var(--text), 0.8);
+    transition: 0.1s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#context-menu label {
+    color: hsla(var(--text), 0.8);
+    font-size: 13px;
+}
+#context-menu row:selected {
+    background: hsl(var(--foreground));
+}
+
 #overlay spinner{
     color: hsl(var(--text));
 }
+row:selected,
 #overlay * {
     background: transparent;
 }
@@ -72,7 +99,8 @@ overshoot:backdrop {
 
 scrolledwindow>viewport,
 scrolledwindow>viewport>*,
-window {
+listview,
+window:not(#backdrop) {
     background: hsl(var(--background));
 }
 
@@ -82,7 +110,7 @@ label {
 }
 
 
-window {
+window:not(#backdrop) {
     color: hsl(var(--text));
     border-radius: 5px;
     border: 2px solid hsl(var(--border));
@@ -94,8 +122,19 @@ window {
     border-top: 1px solid hsl(var(--border));
     padding: 4px 10px 4px 20px;
 }
-.status-bar label {
+.status-bar label#logo {
     color: hsl(var(--text), 0.3);
+}
+.status-bar #shortcut-key, .status-bar #shortcut-modifier {
+    background: hsl(var(--foreground));
+    margin: 2px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+.status-bar #shortcut-description {
+    font-size: 13px;
+    margin-right: 10px;
 }
 .spinner-disappear {
     animation: vanish-rotate 0.3s ease forwards;
@@ -103,6 +142,14 @@ window {
 .spinner-appear {
     animation: ease-opacity 0.3s ease forwards;
     animation: rotate 0.3s linear infinite;
+}
+.inactive {
+    opacity: 0;
+    transition: 0.1s ease;
+}
+.active {
+    opacity: 1;
+    transition: 0.1s ease;
 }
 
 
@@ -236,8 +283,7 @@ image {
     padding: 0px;
 }
 
-.tile:selected {
-    transition: 0.1s ease;
+row:selected .tile{
     background: hsla(var(--foreground), 1);
     background-color: hsla(var(--foreground), 1);
     outline: none;
@@ -507,65 +553,22 @@ image {
 
 
 
-
-
-
 /*WEATHER CLASSES*/
-.tile.weather-tile label
-{
-    color: hsl(var(--text));
-}
-.tile.weather-tile.weather-clear {
-    background: var(--weather-clear); /* Light sky blue */
-}
+/* Weather Types */
+.tile.weather-tile.weather-clear                   { background: var(--weather-clear); }
+.tile.weather-tile.weather-few-clouds             { background: var(--weather-few-clouds); }
+.tile.weather-tile.weather-many-clouds            { background: var(--weather-many-clouds); }
+.tile.weather-tile.weather-mist                   { background: var(--weather-mist); }
+.tile.weather-tile.weather-showers                { background: var(--weather-showers); }
+.tile.weather-tile.weather-freezing-scattered-rain-storm { background: var(--weather-freezing-scattered-rain-storm); }
+.tile.weather-tile.weather-freezing-scattered-rain { background: var(--weather-freezing-scattered-rain); }
+.tile.weather-tile.weather-snow-scattered-day     { background: var(--weather-snow-scattered-day); }
+.tile.weather-tile.weather-storm                  { background: var(--weather-storm); }
+.tile.weather-tile.weather-snow-storm             { background: var(--weather-snow-storm); }
+.tile.weather-tile.weather-snow-scattered-storm   { background: var(--weather-snow-scattered-storm); }
+.tile.weather-tile.weather-showers-scattered      { background: var(--weather-showers-scattered); }
+.tile.weather-tile.weather-none-available         { background: hsl(var(--weather-none-available)); }
 
-.tile.weather-tile.weather-few-clouds {
-    background: var(--weather-few-clouds); /* Very light */
-}
-
-.tile.weather-tile.weather-many-clouds {
-    background: var(--weather-many-clouds); /* Medium-light */
-}
-
-.tile.weather-tile.weather-mist {
-    background: var(--weather-mist); /* Light beige */
-}
-
-.tile.weather-tile.weather-showers {
-    background: var(--weather-showers); /* Medium-dark blue */
-}
-
-.tile.weather-tile.weather-freezing-scattered-rain-storm {
-    background: var(--weather-freezing-scattered-rain-storm);
-}
-
-.tile.weather-tile.weather-freezing-scattered-rain {
-    background: var(--weather-freezing-scattered-rain);
-}
-
-.tile.weather-tile.weather-snow-scattered-day {
-    background: var(--weather-snow-scattered-day);
-}
-
-.tile.weather-tile.weather-storm {
-    background: var(--weather-storm); /* Very dark */
-}
-
-.tile.weather-tile.weather-snow-storm {
-    background: var(--weather-snow-storm); /* Light */
-}
-
-.tile.weather-tile.weather-snow-scattered-storm {
-    background: var(--weather-snow-scattered-storm); /* Still light */
-}
-
-.tile.weather-tile.weather-showers-scattered {
-    background: var(--weather-showers-scattered);
-}
-
-.tile.weather-tile.weather-none-available {
-    background: hsl(var(--weather-none-available)); /* Neutral gray */
-}
 
 
 

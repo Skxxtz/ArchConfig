@@ -23,5 +23,31 @@
     "Microsoft Teams for Linux": {
         "name": "Teams",
         "exec": "/usr/bin/teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
+    },
+    "Obsidian": {
+        "exec": "/usr/bin/obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland %U"
+    },
+    "Thunderbird": {
+        "add_actions": [
+            {
+                "name": "Open Calendar",
+                "exec": "thunderbird --calendar",
+                "method": "app_launcher"
+            },
+            {
+                "name": "Settings",
+                "exec": "thunderbird --options",
+                "method": "app_launcher"
+            }
+        ]
+    },
+    "Zen Browser": {
+        "add_actions": [
+            {
+                "name": "Settings",
+                "exec": "zen-browser --preferences",
+                "method": "app_launcher"
+            }
+        ]
     }
 }
