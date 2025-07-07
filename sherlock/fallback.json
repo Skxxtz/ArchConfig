@@ -1,13 +1,60 @@
 [
     {
+        "name": "Pomodoro Timer",
+        "type": "pomodoro",
+        "args": {
+            "program": "~/.config/sherlock/scripts/sherlock-pomodoro",
+            "socket": "/tmp/sherlock-pomorodo.sock",
+            "style": "minimal"
+        },
+        "priority": 0,
+        "home": "Home",
+        "spawn_focus": false,
+        "binds": [
+            {
+                "bind": "control+r",
+                "callback": "reset"
+            }
+        ],
+        "actions": [
+            {
+                "name": "Reset",
+                "icon": "edit-undo",
+                "exec": "",
+                "method": "inner.reset",
+                "exit": false
+            },
+            {
+                "name": "Toggle",
+                "icon": "media-playback-start",
+                "exec": "",
+                "method": "inner.toggle",
+                "exit": false
+            }
+        ]
+    },
+    {
         "name": "Teams Event",
         "type": "teams_event",
         "args": {
             "icon": "teams"
         },
         "priority": 1,
-        "home": true,
+        "home": "Home",
         "spawn_focus": false
+    },
+    {
+        "name": "Emoji Picker",
+        "type": "emoji_picker",
+        "args": {},
+        "priority": 4
+    },
+    {
+        "name": "Theme Picker",
+        "type": "theme_picker",
+        "args": {},
+        "priority": 4,
+        "home": "Home"
     },
     {
         "name": "Bookmarks",
@@ -17,8 +64,7 @@
             "icon": "sherlock-bookmark",
             "icon_class": "reactive"
         },
-        "priority": 3,
-        "home": false
+        "priority": 3
     },
     {
         "name": "Weather",
@@ -36,9 +82,8 @@
             }
         ],
         "priority": 1,
-        "home": true,
+        "home": "OnlyHome",
         "async": true,
-        "only_home": true,
         "shortcut": false,
         "spawn_focus": false
     },
@@ -48,23 +93,23 @@
         "args": {},
         "async": true,
         "priority": 1,
-        "home": true,
+        "home": "OnlyHome",
         "spawn_focus": false,
-        "only_home": true,
         "actions": [
             {
                 "name": "Skip",
                 "icon": "media-seek-forward",
                 "exec": "playerctl next",
-                "method": "command"
+                "method": "command",
+                "exit": false
             },
             {
                 "name": "Previous",
                 "icon": "media-seek-backward",
                 "exec": "playerctl previous",
-                "method": "command"
+                "method": "command",
+                "exit": false
             }
-
         ]
     },
     {
@@ -74,12 +119,12 @@
             "capabilities": [
                 "url",
                 "colors.all",
-                "calc.math"
+               "calc.math"
             ]
         },
         "on_return": "copy",
         "priority": 2,
-        "home": true
+        "home": "Home"
     },
     {
         "name": "Calculator",
@@ -98,8 +143,8 @@
         "alias": "app",
         "type": "app_launcher",
         "args": {},
-        "priority": 2,
-        "home": true
+        "priority": 3,
+        "home": "Home"
     },
     {
         "name": "Categories",
@@ -119,7 +164,7 @@
                     "search_string": "powermenu;"
                 },
                 "Debug": {
-                    "icon": "tools-report-bug",
+                    "icon": "sherlock-devtools",
                     "icon_class": "reactive",
                     "exec": "debug",
                     "search_string": "debug;error",
@@ -137,17 +182,29 @@
                             "method": "debug"
                         },
                         {
-                            "name": "Show Errors",
+                            "name": "Clear Log",
                             "icon": "sherlock-process",
+                            "exec": "reset_log",
+                            "method": "debug"
+                        },
+                        {
+                            "name": "Show Errors",
+                            "icon": "sherlock-devtools",
                             "exec": "show_errors",
+                            "method": "debug"
+                        },
+                        {
+                            "name": "Insert Test Error",
+                            "icon": "sherlock-devtools",
+                            "exec": "test_error",
                             "method": "debug"
                         }
                     ]
                 }
             }
         },
-        "priority": 2,
-        "home": true
+        "priority": 3,
+        "home": "Home"
     },
     {
         "name": "Bookmarks",
@@ -176,21 +233,40 @@
     },
     {
         "name": "Network Management",
-        "alias": "nm",
+        "type": "categories",
+        "args": {
+            "categories": {
+                "Switch Wifi": {
+                    "actions": [
+                        {
+                            "name": "Waves-AP",
+                            "exec": "nmcli d wifi c Waves-AP",
+                            "method": "command"
+                        },
+                        {
+                            "name": "Waves",
+                            "exec": "nmcli d wifi c Waves",
+                            "method": "command"
+                        }
+                    ],
+                    "icon": "network-connect",
+                    "icon_class": "reactive",
+                    "search_string": "wifi"
+                }
+            }
+        },
+        "priority": 5
+    },
+    {
+        "name": "Clipboard Manager",
         "type": "command",
         "args": {
             "commands": {
-                "Waves": {
-                    "icon": "network-connect",
-                    "icon_class": "reactive",
-                    "exec": "nmcli d wifi c Waves &",
-                    "search_string": "wifi;waves"
-                },
-                "Waves-AP": {
-                    "icon": "network-connect",
-                    "icon_class": "reactive",
-                    "exec": "nmcli d wifi c Waves-AP &",
-                    "search_string": "wifi;wavesap"
+                "Start Clipboard Manager": {
+                    "icon": "edit-copy",
+                    "exec": "wayland-clipboard-manager &",
+                    "search_string": "clipboard;copy",
+                    "icon_class": "reactive"
                 }
             }
         },
@@ -226,7 +302,7 @@
                     "exec": "systemctl reboot",
                     "search_string": "reboot;restart"
                 },
-                "Log Oout": {
+                "Log Out": {
                     "icon": "system-log-out",
                     "icon_class": "reactive",
                     "exec": "hyprctl dispatch exit",
@@ -238,13 +314,12 @@
     },
     {
         "name": "Utilities",
-        "alias": "",
         "type": "command",
         "args": {
             "commands": {
                 "Color Picker": {
                     "icon": "colorgrab",
-                    "exec": "hyprpicker -a &",
+                    "exec": "hyprpicker -a",
                     "search_string": "colorpicker"
                 },
                 "Start Recording": {
@@ -261,8 +336,7 @@
         "alias": "kill",
         "type": "process",
         "args": {},
-        "priority": 0,
-        "home": false
+        "priority": 0
     },
     {
         "name": "Debug",
@@ -343,6 +417,20 @@
             "icon": "wikipedia",
             "exec": "/home/basti/.config/sherlock/scripts/wiki-api",
             "exec-args": "'{keyword}'"
+        },
+        "priority": 0,
+        "shortcut": false
+    },
+    {
+        "name": "Dictionary Lookup",
+        "alias": "define",
+        "type": "bulk_text",
+        "on_return": "next",
+        "async": true,
+        "args": {
+            "icon": "dictionary",
+            "exec": "~/.config/sherlock/scripts/sherlock-dictionary",
+            "exec-args": "{keyword}"
         },
         "priority": 0,
         "shortcut": false

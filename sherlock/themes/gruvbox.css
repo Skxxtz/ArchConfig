@@ -24,7 +24,7 @@
 image.reactive {
     -gtk-icon-filter: brightness(10) saturate(100%) contrast(100%); /* white */
 }
-.tile:selected image.reactive {
+row:selected .tile image.reactive {
     -gtk-icon-filter: brightness(0) saturate(100%) contrast(100%); /* black */
 }
 
@@ -49,11 +49,11 @@ image.reactive {
 }
 
 
-.tile:selected #title {
+row:selected .tile #title {
     color: hsla(var(--text-active), 0.7);
 }
 
-.tile:selected .tag,
+row:selected .tile .tag,
 .tag {
     font-size: 11px;
     border-radius: 3px;
@@ -64,13 +64,14 @@ image.reactive {
     margin-left: 7px;
 }
 
-.tile:selected .tag-start,
-.tag-start {
+row:selected .tile .tag-start,
+row:selected .tile .tag-start {
     background: hsla(var(--tag-background), 0.7);
 }
 
-.tile:selected .tag-end,
-.tag-end {
+row:selected .tile .tag-end,
+row:selected .tile .tag-end
+{
     background: hsla(var(--success), 1);
 }
 
@@ -83,7 +84,7 @@ image.reactive {
     color: hsla(var(--text), 0.4);
     margin-left: 0px;
 }
-.tile:selected #launcher-type {
+row:selected .tile #launcher-type {
     color: hsla(var(--text-active), 0.4);
 }
 

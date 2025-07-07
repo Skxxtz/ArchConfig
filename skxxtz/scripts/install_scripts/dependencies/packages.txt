@@ -1,6 +1,7 @@
 git
 swaybg
 swaync
+swayimg
 waybar
 hyprland
 wl-clipboard
@@ -12,7 +13,6 @@ grim
 slurp
 python-dbus
 btop
-feh
 unzip
 zip
 rustup

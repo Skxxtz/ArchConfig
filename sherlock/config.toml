@@ -13,32 +13,36 @@ _currency = "eur"
 
 [debug]
 try_suppress_errors = false
-try_suppress_warnings = true
-app_paths = ["~/.local/share/applications/"]
+try_suppress_warnings = false
+app_paths = []
 
 [appearance]
 width = 900
-height = 617
+height = 593
 gsk_renderer = "cairo"
-icon_paths = ["~/.config/sherlock/icons/"]
+icon_paths = ["~/.config/sherlock//icons/"]
 icon_size = 22
 search_icon = true
-search_icon_size = 50
 use_base_css = true
 status_bar = true
 opacity = 1.0
 mod_key_ascii = ["⇧", "⇧", "⌘", "⌘", "⎇", "✦", "✦", "⌘"]
+search_bar_icon = "system-search-symbolic"
+search_bar_icon_back = "sherlock-back"
+search_icon_size = 22
 
 [behavior]
 cache = "~/.cache/sherlock/sherlock_desktop_cache.json"
-caching = false
+caching = true
 daemonize = false
-animate = true
+animate = false
 
 [binds]
 next = "control-j"
 prev = "control-k"
 modifier = "control"
+context = "control-l"
+exec_inplace = "control-return"
 
 [files]
 config = "~/.config/sherlock/config.toml"
@@ -48,3 +52,14 @@ alias = "~/.config/sherlock/sherlock_alias.json"
 ignore = "~/.config/sherlock/sherlockignore"
 actions = "~/.config/sherlock/sherlock_actions.json"
 
+[pipe]
+
+[expand]
+enable = false
+edge = "top"
+margin = 400
+
+[backdrop]
+enable = false
+opacity = 0.6
+edge = "bottom"

@@ -37,7 +37,7 @@ fc-cache -f -v
 
 
 rm -rf ~/.bashrc
-ln -s ~/.config/skxxtz/confs/backrc ~/.bashrc
+ln -s ~/.config/skxxtz/confs/bashrc ~/.bashrc
 
 rm -rf ~/.bash_profile
 ln -s ~/.config/skxxtz/confs/bash_profile ~/.bash_profile

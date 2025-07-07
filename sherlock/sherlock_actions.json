@@ -1,3 +1,4 @@
 [
-  { "on": 100, "action": "clear_cache" }
+  { "on": 200, "action": "debug", "exec": "clear_cache" },
+  { "on": 100, "action": "debug", "exec": "reset_log" }
 ]

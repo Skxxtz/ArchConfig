@@ -12,7 +12,8 @@
 
 
 window#waybar {
-    background: rgba(50, 50, 50, 0.7);
+    background: linear-gradient(180deg, rgba(50, 50, 50, 0.8) 0%, rgba(50, 50, 50, 0) 100%);
+    /* background: rgba(50, 50, 50, 0.6); */
     color: #ffffff;
 }
 

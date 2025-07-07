@@ -49,5 +49,8 @@
                 "method": "app_launcher"
             }
         ]
+    },
+    "ranger": {
+        "name": "Ranger"
     }
 }
