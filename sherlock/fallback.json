@@ -20,14 +20,12 @@
             {
                 "name": "Reset",
                 "icon": "edit-undo",
-                "exec": "",
                 "method": "inner.reset",
                 "exit": false
             },
             {
                 "name": "Toggle",
                 "icon": "media-playback-start",
-                "exec": "",
                 "method": "inner.toggle",
                 "exit": false
             }
@@ -37,11 +35,16 @@
         "name": "Teams Event",
         "type": "teams_event",
         "args": {
-            "icon": "teams"
+            "icon": "teams",
+            "event_date": "now",
+            "event_start": "-5 minutes",
+            "event_end": "+15 days"
+
         },
         "priority": 1,
         "home": "Home",
-        "spawn_focus": false
+        "spawn_focus": false,
+        "shortcut": false
     },
     {
         "name": "Emoji Picker",
@@ -95,19 +98,34 @@
         "priority": 1,
         "home": "OnlyHome",
         "spawn_focus": false,
+        "binds": [
+            {
+                "bind": "Return",
+                "callback": "playpause",
+                "exit": false
+            },
+            {
+                "bind": "control+l",
+                "callback": "next",
+                "exit": false
+            },
+            {
+                "bind": "control+h",
+                "callback": "previous",
+                "exit": false
+            }
+        ],
         "actions": [
             {
                 "name": "Skip",
                 "icon": "media-seek-forward",
-                "exec": "playerctl next",
-                "method": "command",
+                "method": "inner.next",
                 "exit": false
             },
             {
                 "name": "Previous",
                 "icon": "media-seek-backward",
-                "exec": "playerctl previous",
-                "method": "command",
+                "method": "inner.previous",
                 "exit": false
             }
         ]
@@ -119,7 +137,7 @@
             "capabilities": [
                 "url",
                 "colors.all",
-               "calc.math"
+                "calc.math"
             ]
         },
         "on_return": "copy",
@@ -161,7 +179,40 @@
                     "icon": "battery-full-symbolic",
                     "icon_class": "reactive",
                     "exec": "pm",
-                    "search_string": "powermenu;"
+                    "search_string": "powermenu;",
+                    "actions": [
+
+                        {
+                            "name": "Shutdown",
+                            "icon": "system-shutdown",
+                            "exec": "systemctl poweroff",
+                            "method": "command"
+                        },
+                        {
+                            "name": "Sleep",
+                            "icon": "system-suspend",
+                            "exec": "systemctl suspend",
+                            "method": "command"
+                        },
+                        {
+                            "name": "Lock",
+                            "icon": "system-lock-screen",
+                            "exec": "systemctl suspend & swaylock",
+                            "method": "command"
+                        },
+                        {
+                            "name": "Reboot",
+                            "icon": "system-reboot",
+                            "exec": "systemctl reboot",
+                            "method": "command"
+                        },
+                        {
+                            "name": "Log Out",
+                            "icon": "system-log-out",
+                            "exec": "hyprctl dispatch exit",
+                            "method": "command"
+                        }
+                    ]
                 },
                 "Debug": {
                     "icon": "sherlock-devtools",
