@@ -120,7 +120,7 @@
         "format-wifi": "{icon}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{essid} {signalStrength}%",
-        "format-linked": "{ifname} (No IP) ",
+        "format-linked": "No IP ⚠",
         "format-disconnected": "⚠",
         // "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
         "format-icons": ["", "", ""],

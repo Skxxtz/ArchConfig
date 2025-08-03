@@ -38,7 +38,7 @@
             "icon": "teams",
             "event_date": "now",
             "event_start": "-5 minutes",
-            "event_end": "+15 days"
+            "event_end": "+15 minutes"
 
         },
         "priority": 1,
@@ -48,8 +48,11 @@
     },
     {
         "name": "Emoji Picker",
+        "alias": "emj",
         "type": "emoji_picker",
-        "args": {},
+        "args": {
+            "default_skin_color": "Light"
+        },
         "priority": 4
     },
     {
@@ -256,6 +259,20 @@
         },
         "priority": 3,
         "home": "Home"
+    },
+    {
+        "name": "Throw Confetti",
+        "type": "command",
+        "args": {
+            "commands": {
+                "Confetti": {
+                    "icon": "sherlock-confetti",
+                    "exec": "~/confetti/target/release/confetti",
+                    "search_string": "confetti;party"
+                }
+            }
+        },
+        "priority": 3
     },
     {
         "name": "Bookmarks",

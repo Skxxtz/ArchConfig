@@ -9,7 +9,7 @@ lengths = "meters"
 weights = "kg"
 volumes = "l"
 temperatures = "C"
-_currency = "eur"
+currency = "eur"
 
 [debug]
 try_suppress_errors = false
@@ -22,14 +22,9 @@ height = 593
 gsk_renderer = "cairo"
 icon_paths = ["~/.config/sherlock/icons/"]
 icon_size = 22
-search_icon = true
 use_base_css = true
-status_bar = true
 opacity = 1.0
 mod_key_ascii = ["⇧", "⇧", "⌘", "⌘", "⎇", "✦", "✦", "⌘"]
-search_bar_icon = "system-search-symbolic"
-search_bar_icon_back = "sherlock-back"
-search_icon_size = 22
 
 [behavior]
 cache = "~/.cache/sherlock/sherlock_desktop_cache.json"
@@ -38,10 +33,12 @@ daemonize = false
 animate = false
 
 [binds]
-next = "control-j"
-prev = "control-k"
+up = "control-k"
+down = "control-j"
+left = "control-h"
+right = "control-l"
 modifier = "control"
-context = "control-l"
+context = "control-i"
 exec_inplace = "control-return"
 
 [files]
@@ -63,3 +60,12 @@ margin = 400
 enable = false
 opacity = 0.6
 edge = "bottom"
+
+[status_bar]
+enable = true
+
+[search_bar_icon]
+enable = true
+icon = "system-search-symbolic"
+icon_back = "sherlock-back"
+size = 22
