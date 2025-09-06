@@ -1,37 +1,5 @@
 [
     {
-        "name": "Pomodoro Timer",
-        "type": "pomodoro",
-        "args": {
-            "program": "~/.config/sherlock/scripts/sherlock-pomodoro",
-            "socket": "/tmp/sherlock-pomorodo.sock",
-            "style": "minimal"
-        },
-        "priority": 0,
-        "home": "Home",
-        "spawn_focus": false,
-        "binds": [
-            {
-                "bind": "control+r",
-                "callback": "reset"
-            }
-        ],
-        "actions": [
-            {
-                "name": "Reset",
-                "icon": "edit-undo",
-                "method": "inner.reset",
-                "exit": false
-            },
-            {
-                "name": "Toggle",
-                "icon": "media-playback-start",
-                "method": "inner.toggle",
-                "exit": false
-            }
-        ]
-    },
-    {
         "name": "Teams Event",
         "type": "teams_event",
         "args": {
@@ -58,9 +26,12 @@
     {
         "name": "Theme Picker",
         "type": "theme_picker",
-        "args": {},
-        "priority": 4,
-        "home": "Home"
+        "alias": "themes",
+        "args": {
+            "icon": "theme-picker"
+        },
+        "priority": 0,
+        "home": "Search"
     },
     {
         "name": "Bookmarks",
@@ -77,7 +48,8 @@
         "type": "weather",
         "args": {
             "location": "bremen",
-            "update_interval": 60
+            "update_interval": 60,
+            "icon_theme": "Sherlock"
         },
         "actions": [
             {
@@ -102,11 +74,6 @@
         "home": "OnlyHome",
         "spawn_focus": false,
         "binds": [
-            {
-                "bind": "Return",
-                "callback": "playpause",
-                "exit": false
-            },
             {
                 "bind": "control+l",
                 "callback": "next",
@@ -150,6 +117,7 @@
     {
         "name": "Calculator",
         "type": "calculation",
+        "alias": "calc",
         "args": {
             "capabilities": [
                 "calc.math",
@@ -163,7 +131,9 @@
         "name": "App Launcher",
         "alias": "app",
         "type": "app_launcher",
-        "args": {},
+        "args": {
+            "icon_class": "reactive"
+        },
         "priority": 3,
         "home": "Home"
     },
@@ -173,10 +143,11 @@
         "type": "categories",
         "args": {
             "categories": {
-                "Kill Processes": {
-                    "icon": "sherlock-process",
-                    "exec": "kill",
-                    "search_string": "terminate;kill;process"
+                "Themes": {
+                    "icon": "theme-picker",
+                    "icon_class": "reactive",
+                    "exec": "themes",
+                    "search_string": "themes;"
                 },
                 "Power Menu": {
                     "icon": "battery-full-symbolic",
@@ -267,7 +238,7 @@
             "commands": {
                 "Confetti": {
                     "icon": "sherlock-confetti",
-                    "exec": "~/confetti/target/release/confetti",
+                    "exec": "confetti",
                     "search_string": "confetti;party"
                 }
             }
@@ -398,13 +369,6 @@
             }
         },
         "priority": 6
-    },
-    {
-        "name": "Kill Process",
-        "alias": "kill",
-        "type": "process",
-        "args": {},
-        "priority": 0
     },
     {
         "name": "Debug",

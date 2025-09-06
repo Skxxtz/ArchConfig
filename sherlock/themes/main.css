@@ -4,25 +4,32 @@
     --text: 53, 100%, 97%;
     --border: 0, 0%, 19%;
 
-
     --tag-background: 180, 0%, 30%;
     --tag-color: 220, 10%, 100%;
     --error: 4, 71%, 62%;
     --warning: 55, 100%, 68%;
     --success: 140, 40%, 40%;
 
-    --weather-clear: linear-gradient(45deg, #87B2E0 0%, #CED9E5 50%);
-    --weather-few-clouds: linear-gradient(45deg, #A1A1A1 0%, #87B2E0 100%);
-    --weather-many-clouds: linear-gradient(45deg, #B2B2B2 0%, #C8C8C8 100%);
-    --weather-mist: linear-gradient(45deg, #878787 0%, #D1D1C7 100%);
-    --weather-showers: linear-gradient(45deg, #73848C 0%, #374B54 100%);
-    --weather-freezing-scattered-rain-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-freezing-scattered-rain: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-    --weather-snow-scattered-day: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-    --weather-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-snow-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-snow-scattered-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-    --weather-showers-scattered: linear-gradient(45deg, #73848C 0%, #374B54 100%);
+    --weather-clear: linear-gradient(45deg, #87b2e0 0%, #ced9e5 50%);
+    --weather-few-clouds: linear-gradient(45deg, #a1a1a1 0%, #87b2e0 100%);
+    --weather-many-clouds: linear-gradient(45deg, #b2b2b2 0%, #c8c8c8 100%);
+    --weather-mist: linear-gradient(45deg, #878787 0%, #d1d1c7 100%);
+    --weather-showers: linear-gradient(45deg, #73848c 0%, #374b54 100%);
+    --weather-freezing-scattered-rain-storm: linear-gradient(45deg,
+            #1a1c1f 0%,
+            #242b35 100%);
+    --weather-freezing-scattered-rain: linear-gradient(45deg,
+            #73848c 0%,
+            #242b35 100%);
+    --weather-snow-scattered-day: linear-gradient(45deg,
+            #73848c 0%,
+            #242b35 100%);
+    --weather-storm: linear-gradient(45deg, #1a1c1f 0%, #242b35 100%);
+    --weather-snow-storm: linear-gradient(45deg, #1a1c1f 0%, #242b35 100%);
+    --weather-snow-scattered-storm: linear-gradient(45deg,
+            #1a1c1f 0%,
+            #242b35 100%);
+    --weather-showers-scattered: linear-gradient(45deg, #73848c 0%, #374b54 100%);
 
     --weather-none-available: 0, 0%, 50%;
     /* Neutral placeholder gray */
@@ -118,7 +125,6 @@ label {
     color: hsl(var(--text));
 }
 
-
 window:not(#backdrop) {
     color: hsl(var(--text));
     border-radius: 5px;
@@ -149,6 +155,7 @@ window:not(#backdrop) {
     font-size: 13px;
     margin-right: 10px;
 }
+
 .status-bar {
     background: hsla(var(--foreground), 0.2);
     border-top: 1px solid hsl(var(--border));
@@ -177,7 +184,6 @@ window:not(#backdrop) {
     opacity: 1;
     transition: 0.1s ease;
 }
-
 
 /* SEARCH PAGE */
 #search-bar {
@@ -218,7 +224,6 @@ window:not(#backdrop) {
     opacity: 1;
 }
 
-
 #search-icon {
     margin-left: 10px;
 }
@@ -257,7 +262,6 @@ scrollbar slider {
     background: hsla(var(--text), 0.1);
     border: none;
 }
-
 
 image {
     color: white;
@@ -386,7 +390,6 @@ row:selected .tag-start,
     border-radius: 50px;
 }
 
-
 /*SHORTCUT*/
 #shortcut-holder {
     margin-right: 25px;
@@ -433,7 +436,6 @@ gridview child:selected box {
     border: 1px solid hsl(var(--tag-color));
 }
 
-
 /*CALCULATOR*/
 .calc-tile {
     padding: 10px 10px 20px 10px;
@@ -468,15 +470,11 @@ gridview child:selected box {
     color: gray;
 }
 
-
-
-
 /* BULK TEXT TILE */
 .bulk-text {
     padding-bottom: 10px;
     min-height: 50px;
 }
-
 
 #bulk-text-title {
     margin-left: 10px;
@@ -499,8 +497,6 @@ gridview child:selected box {
     min-height: 20px;
 }
 
-
-
 /* MPRIS TILE*/
 #mpris-icon-holder {
     border-radius: 5px;
@@ -511,12 +507,6 @@ gridview child:selected box {
     opacity: 1;
     animation: ease-opacity 0.5s forwards;
 }
-
-
-
-
-
-
 
 /* NEXT PAGE */
 .next_tile {
@@ -532,11 +522,10 @@ gridview child:selected box {
 
 .raw_text,
 .next_tile #content-body {
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
     font-feature-settings: "kern" off;
     font-kerning: None;
 }
-
 
 /*Error*/
 .error-tile #scroll-window {
@@ -587,9 +576,6 @@ gridview child:selected box {
     color: gray;
 }
 
-
-
-
 @keyframes slide {
     from {
         transform: translate(0px, 0px);
@@ -635,8 +621,6 @@ gridview child:selected box {
 .tile.weather-tile #content-holder {
     margin-bottom: 15px;
 }
-
-
 
 /*WEATHER CLASSES*/
 /* Weather Types */
@@ -692,9 +676,6 @@ gridview child:selected box {
     background: hsl(var(--weather-none-available));
 }
 
-
-
-
 /*ANIMATIONS*/
 @keyframes vanish-rotate {
     from {
@@ -705,7 +686,6 @@ gridview child:selected box {
         opacity: 0;
         transform: rotate(360deg);
     }
-
 }
 
 @keyframes rotate {
@@ -718,7 +698,6 @@ gridview child:selected box {
         transform: rotate(360deg);
         --start-rotation: 360deg;
     }
-
 }
 
 @keyframes ease-opacity {
@@ -729,7 +708,6 @@ gridview child:selected box {
     to {
         opacity: 1;
     }
-
 }
 
 @keyframes slide {

@@ -20,6 +20,21 @@
         "exec": "/usr/bin/vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland %U",
         "keywords": "discord"
     },
+    "Discord": {
+        "name": "TestCord"
+    },
+    "LibreOffice Writer": {
+        "name": "Writer",
+        "icon": "document"
+    },
+    "LibreOffice Calc": {
+        "name": "Tables",
+        "icon": "spreadsheet"
+    },
+    "Dolphin": {
+        "name": "Files",
+        "icon": "file"
+    },
     "Microsoft Teams for Linux": {
         "name": "Teams",
         "exec": "/usr/bin/teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland %U"

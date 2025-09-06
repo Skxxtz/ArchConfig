@@ -1,0 +1,15 @@
+
+window:not(#backdrop) {
+    background: hsl(from var(--background) h s l / 100%);
+}
+
+#search-bar{
+    background: transparent;
+}
+
+scrolledwindow>viewport,
+scrolledwindow>viewport>*,
+listview,
+gridview {
+    background: transparent;
+}
