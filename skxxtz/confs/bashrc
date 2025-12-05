@@ -1,8 +1,8 @@
 # ~/.bashrc
 [[ $- != *i* ]] && return
-export PATH="$HOME/.pyenv/shims:$HOME/.cargo/bin/:$HOME/.local/bin/:$PATH"
+
+export PATH="$HOME/.pyenv/shims:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 alias ls='ls --color=auto'
-alias show='swayimg'
 alias lls='ls -a --color=auto'
 alias grep='grep --color=auto'
 export TERMINAL=kitty

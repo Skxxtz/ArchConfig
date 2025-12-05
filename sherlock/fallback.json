@@ -1,13 +1,12 @@
 [
     {
-        "name": "Teams Event",
+        "name": "Join Teams Meeting",
         "type": "teams_event",
         "args": {
             "icon": "teams",
             "event_date": "now",
             "event_start": "-5 minutes",
-            "event_end": "+15 minutes"
-
+            "event_end": "+1 hour"
         },
         "priority": 1,
         "home": "Home",
@@ -48,7 +47,7 @@
         "type": "weather",
         "args": {
             "location": "bremen",
-            "update_interval": 60,
+            "update_interval": 120,
             "icon_theme": "Sherlock"
         },
         "actions": [
@@ -121,7 +120,8 @@
         "args": {
             "capabilities": [
                 "calc.math",
-                "calc.units"
+                "calc.units",
+                "calc.currencies"
             ]
         },
         "priority": 1,
@@ -136,6 +136,20 @@
         },
         "priority": 3,
         "home": "Home"
+    },
+    {
+        "name": "SSH",
+        "type": "command",
+        "args": {
+            "commands": {
+                "SSH": {
+                    "icon": "sherlock-link",
+                    "exec": "{terminal} ssh {custom_text:User:}@{custom_text:Host:}",
+                    "search_string": "ssh"
+                }
+            }
+        },
+        "priority": 3
     },
     {
         "name": "Categories",
@@ -357,7 +371,7 @@
         "args": {
             "commands": {
                 "Color Picker": {
-                    "icon": "colorgrab",
+                    "icon": "sherlock-colorwheel",
                     "exec": "hyprpicker -a",
                     "search_string": "colorpicker"
                 },
@@ -365,6 +379,21 @@
                     "icon": "sherlock-record",
                     "exec": "obs --startrecording &",
                     "search_string": "recording;start recording;startrecording;obs studio;"
+                },
+                "SSH": {
+                    "icon": "sherlock-link",
+                    "exec": "{terminal} ssh {custom_text:User:}@{custom_text:Host:}",
+                    "search_string": "ssh"
+                },
+                "NordVPN": {
+                    "icon": "nordvpn",
+                    "exec": "{terminal} sh -c 'nordvpn c {custom_text:Server:}; exec $SHELL'",
+                    "search_string": "nordvpn"
+                },
+                "NordVPN Daemon": {
+                    "icon": "nordvpn",
+                    "exec": "echo \"{password:SUDO}\" | sudo -S systemctl start nordvpnd",
+                    "search_string": "nordvpn daemon"
                 }
             }
         },

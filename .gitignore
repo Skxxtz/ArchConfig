@@ -15,6 +15,7 @@
 !/gtk*
 !/sherlock
 !/git/.gitconfig
+!/foot/
 
 
 # Node.js
